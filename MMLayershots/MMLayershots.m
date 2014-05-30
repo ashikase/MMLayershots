@@ -194,7 +194,7 @@ static MMLayershots *_sharedInstance;
         layer.hidden = NO;
         if (layer.sublayers.count>0) {
             // add self
-            [psdWriter addLayerWithCGImage:[[self imageFromLayer:rootLayer] CGImage] andName:@"Layer" andOpacity:1.0 andOffset:CGPointZero];
+            [psdWriter addLayerWithCGImage:[[self imageFromLayer:rootLayer] CGImage] andName:@"Layer" andOpacity:1.0 andOffset:CGPointZero andCropping:NO];
 
             // hide own layer visuals while rendering children
             CGColorRef layerBgColor = layer.backgroundColor;
@@ -221,7 +221,7 @@ static MMLayershots *_sharedInstance;
             layer.shadowColor = layerShadowColor;
         } else {
             // base case
-            [psdWriter addLayerWithCGImage:[[self imageFromLayer:rootLayer] CGImage] andName:@"Layer" andOpacity:1.0 andOffset:CGPointZero];
+            [psdWriter addLayerWithCGImage:[[self imageFromLayer:rootLayer] CGImage] andName:@"Layer" andOpacity:1.0 andOffset:CGPointZero andCropping:NO];
         }
         layer.hidden = YES;
     }
